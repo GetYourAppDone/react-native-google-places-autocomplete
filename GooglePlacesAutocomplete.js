@@ -486,6 +486,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
                 : responseJSON.predictions;
 
             _results = results;
+            console.log('[results]',results)
             setDataSource(buildRowsFromResults(results));
             // }
           }
@@ -671,7 +672,9 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
     if (!_shouldShowPoweredLogo()) {
       return null;
     }
-
+    if(props?.ListFooterComponent){
+      return props.ListFooterComponent
+    }
     return (
       <View
         style={[
